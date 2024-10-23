@@ -89,10 +89,10 @@ A location must be specified by their ID using the "location" variable within th
 ## Running the script
 Because the script uses imported packages like requests, it cannot be run directly from Home Assistant. Instead, a command line sensor must be used, for example:
 
-    command_line:
-	    - sensor:
-		    name: KNMI Global (solar)radiation
-	        unit_of_measurement: Watt/m2
-	        scan_interval: 30
-	        unique_id: ec278d13-91a4-4846-bb57-fe3d8d990b21
-	        command: 'python3 ./python_scripts/knmi_radiation.py'
+	command_line:
+	  - sensor:
+	      name: KNMI Global (solar)radiation
+	      unit_of_measurement: W/m²
+	      scan_interval: 30
+	      unique_id: ec278d13-91a4-4846-bb57-fe3d8d990b21
+	      command: 'python3 ./python_scripts/knmi_radiation.py'
