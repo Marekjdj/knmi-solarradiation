@@ -26,11 +26,11 @@ list = []
 for i in range(2):
     # format the datetime object into RFC 3339 timestamp
     rfc3339 = start_time.replace(microsecond=0).isoformat('T') + 'Z'
-    url = f"https://api.dataplatform.knmi.nl/edr/v1/collections/observations/locations/{location}?datetime={rfc3339}&parameter-name=q_glob_10"
+    url = f"https://api.dataplatform.knmi.nl/edr/v1/collections/10-minute-in-situ-meteorological-observations/locations/{location}?datetime={rfc3339}&parameter-name=qg"
     response = requests.request("GET", url, headers=headers, data=payload)
     data = json.loads(response.text)
     try:
-        value = data["ranges"]["q_glob_10"]["values"]
+        value = data["coverages"][0]["ranges"]["qg"]["values"]
         list.append(value)
     except KeyError:
         pass
